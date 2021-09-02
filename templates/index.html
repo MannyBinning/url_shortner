@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <title>URL Shortener</title>
+</head>
+
+<body>
+    <div class="container margin-top">
+        <div class="row">
+            <div class="col text-center">
+                <h1>Shorten URLs</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form class="row" action="{{ url_for('index') }}" method="POST">
+            <div class="col-12 mb-3">
+                <label for="original_url" class="form-label">Enter the URL</label>
+                <input type="url" class="form-control" name="original_url" id="original_url" placeholder="URL" validate
+                    required>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-dark">
+                        Shorten URL
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+
+
+</body>
+
+</html>
