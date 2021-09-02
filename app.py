@@ -23,6 +23,19 @@ mongo = PyMongo(app)
 # Form Submission method
 @app.route("/index", methods=["GET","POST"])
 def index():
+    if request.method == "POST":
+        finding_url = mongo.db.urls.find_one(
+            {"original_url": request.form.get("original_url")})
+        short_url = shorten_url()
+        if finding_url:
+            return render_template("index.html")
+        new_urls = {
+            "original_url": request.form.get("original_url"),
+            "new_url": "",
+            "short_code": short_url
+        }
+        mongo.db.urls.insert_one(new_urls)
+        return "helloworld"
     return render_template("index.html")
 
 
@@ -36,9 +49,6 @@ def shorten_url():
             {"short_code": request.form.get("short_code")})
         if not short_url:
             return rand_letters
-        
-
-
 
 
 if __name__ == "__main__":
