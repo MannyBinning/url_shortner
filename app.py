@@ -21,21 +21,21 @@ mongo = PyMongo(app)
 
 @app.route("/")
 # Form Submission method
-@app.route("/index", methods=["GET","POST"])
+@app.route("/index", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         finding_url = mongo.db.urls.find_one(
             {"original_url": request.form.get("original_url")})
         short_url = shorten_url()
         if finding_url:
-            return render_template("index.html")
+            return redirect(url_for("display_short_url",url=finding_url["short_code"]))
         new_urls = {
             "original_url": request.form.get("original_url"),
             "new_url": "",
             "short_code": short_url
         }
         mongo.db.urls.insert_one(new_urls)
-        return "helloworld"
+        return redirect(url_for("display_short_url", url=short_url))      
     return render_template("index.html")
 
 
@@ -51,10 +51,20 @@ def shorten_url():
             return rand_letters
 
 
+# to display new ur for the user
 @app.route("/display/<url>")
 def display_short_url(url):
     return render_template("short_url.html", short_url_display=url)
 
+
+# Redirect user to the original URL
+@app.route("/<short_url>")
+def redirection(short_url):
+    real_url = mongo.db.urls.find_one({"short_code": short_url})
+    if real_url:
+        return redirect(real_url["original_url"])
+    else:
+        return "url not available"
 
 
 if __name__ == "__main__":
