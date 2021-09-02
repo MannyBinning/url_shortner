@@ -54,7 +54,9 @@ def shorten_url():
 # to display new ur for the user
 @app.route("/display/<url>")
 def display_short_url(url):
-    return render_template("short_url.html", short_url_display=url)
+    original_urls = mongo.db.urls.find().sort("original_url", 1)
+    new_urls = mongo.db.urls.find().sort("new_url", 1)
+    return render_template("short_url.html", short_url_display=url, original_urls=original_urls, new_urls=new_urls)
 
 
 # Redirect user to the original URL

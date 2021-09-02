@@ -2,19 +2,34 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mt-5">
             <h1>short-li.herokuapp.com/{{short_url_display}}</h1>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            Original URL
+{% for x in original_urls %}
+{% for x in new_urls %}
+<div class="container mt-4">
+<div class="row mt-2 text-center ">
+    <div class="col-sm-6">
+      <div class="card max-height">
+        <div class="card-body">
+          <h5 class="card-title">Original URL </h5>
+          <p class="card-text">{{ x.original_url }}</p>
         </div>
-        <div class="col-6">
-            New URL
-        </div>
+      </div>
     </div>
+    <div class="col-sm-6">
+      <div class="card max-height">
+        <div class="card-body">
+          <h5 class="card-title">New URL </h5>
+          <p class="card-text">{{ x.new_url }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endfor %}
 </div>
 {% endblock %}
