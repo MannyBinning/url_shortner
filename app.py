@@ -31,7 +31,7 @@ def index():
             return redirect(url_for("display_short_url",url=finding_url["short_code"]))
         new_urls = {
             "original_url": request.form.get("original_url"),
-            "new_url": "",
+            "new_url": "short-li.herokuapp.com/"+short_url,
             "short_code": short_url
         }
         mongo.db.urls.insert_one(new_urls)
