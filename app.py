@@ -51,6 +51,12 @@ def shorten_url():
             return rand_letters
 
 
+@app.route("/display/<url>")
+def display_short_url(url):
+    return render_template("short_url.html", short_url_display=url)
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
