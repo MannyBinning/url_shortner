@@ -24,18 +24,19 @@ mongo = PyMongo(app)
 @app.route("/index", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
+        x = request.form["original_url"]
         finding_url = mongo.db.urls.find_one(
             {"original_url": request.form.get("original_url")})
         short_url = shorten_url()
         if finding_url:
-            return redirect(url_for("display_short_url",url=finding_url["short_code"]))
+            return redirect(url_for("display_short_url", url=finding_url["short_code"]))
         new_urls = {
             "original_url": request.form.get("original_url"),
             "new_url": "short-li.herokuapp.com/"+short_url,
             "short_code": short_url
         }
         mongo.db.urls.insert_one(new_urls)
-        return redirect(url_for("display_short_url", url=short_url))      
+        return redirect(url_for("display_short_url", url=short_url,))  
     return render_template("index.html")
 
 
@@ -57,6 +58,13 @@ def display_short_url(url):
     original_urls = mongo.db.urls.find().sort("original_url", 1)
     new_urls = mongo.db.urls.find().sort("new_url", 1)
     return render_template("short_url.html", short_url_display=url, original_urls=original_urls, new_urls=new_urls)
+
+
+@app.route("/display_url_log")
+def display_url_log():
+    original_urls = mongo.db.urls.find().sort("original_url", 1)
+    new_urls = mongo.db.urls.find().sort("new_url", 1)
+    return render_template("url_log.html", original_urls=original_urls, new_urls=new_urls)
 
 
 # Redirect user to the original URL

@@ -12,13 +12,29 @@
 </head>
 
 <body>
-    <div class="container margin-top">
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+<!--Nav items-->
+            <div>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}">Home </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('display_url_log') }}">URLS</a>
+                    </li>
+                </ul>
+            </div>
+            
+    </nav>
+    <div class="background">
+    <div class="container">
         <div class="row">
             <div class="col text-center">
                 <h1>Shorten URLs</h1>
             </div>
         </div>
     </div>
+
     <div class="container">
         <form class="row" action="{{ url_for('index') }}" method="POST">
             <div class="col-2"></div>
@@ -35,9 +51,15 @@
                     </button>
                 </div>
             </div>
+            
         </form>
+        <div>
+            {% block container %}
+            {% endblock %}
+        </div>
+        
     </div>
-    <div>
+</div>
 
 {% block content %}
 {% endblock %}

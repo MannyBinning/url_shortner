@@ -5,3 +5,8 @@
 .max-height{
     min-height: 100px;
 }
+
+.background{
+    background-color: brown;
+    min-height: 400px;
+}

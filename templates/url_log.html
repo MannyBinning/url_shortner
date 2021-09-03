@@ -1,15 +1,4 @@
 {% extends "index.html" %}
-
-{% block container %}
-<div class="container">
-    <div class="row">
-        
-        <div class="col-12 text-center mt-5">
-            <h4>short-li.herokuapp.com/{{short_url_display}}</h4>
-        </div>
-    </div>
-</div>
-{% endblock %}
 {% block content %}
 {% for x in original_urls %}
 {% for x in new_urls %}
