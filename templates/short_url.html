@@ -3,14 +3,23 @@
 {% block container %}
 <div class="container">
     <div class="row">
-        
-        <div class="col-12 text-center mt-5">
-            <h4>short-li.herokuapp.com/{{short_url_display}}</h4>
+      <div class="col-2"></div>
+      <div class="card col-8 mt-3 mb-5">
+        <div class="card-header">
+          <div><h4 class="text-center">New URL Generated</h4></div>        
         </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <h4 class="text-center">short-li.herokuapp.com/{{short_url_display}}</h4>
+          </blockquote>
+        </div>
+      </div>
+      <div class="col-2"></div>
     </div>
 </div>
 {% endblock %}
 {% block content %}
+<div><h2 class="text-center mt-5">ALL URLS</h2></div>
 {% for x in original_urls %}
 {% for x in new_urls %}
 <div class="container mt-4" id="urls">
