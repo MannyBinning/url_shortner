@@ -52,7 +52,7 @@ def shorten_url():
             return rand_letters
 
 
-# to display new ur for the user
+# to display new url for the user
 @app.route("/display/<url>")
 def display_short_url(url):
     original_urls = mongo.db.urls.find().sort("original_url", 1)
@@ -60,6 +60,7 @@ def display_short_url(url):
     return render_template("short_url.html", short_url_display=url, original_urls=original_urls, new_urls=new_urls)
 
 
+# to display saved urls
 @app.route("/display_url_log")
 def display_url_log():
     original_urls = mongo.db.urls.find().sort("original_url", 1)
