@@ -24,7 +24,6 @@ mongo = PyMongo(app)
 @app.route("/index", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        x = request.form["original_url"]
         finding_url = mongo.db.urls.find_one(
             {"original_url": request.form.get("original_url")})
         short_url = shorten_url()

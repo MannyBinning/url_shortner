@@ -1,5 +1,5 @@
 # UX
-URL Shortner is an application designed to shorten any long URLs. Design of this application has been kept very simple and straight forward to make it easier for the user to navigate through the site and to focus on the main purpose of the site.
+[URL Shortner](https://short-li.herokuapp.com/) is an application designed to shorten any long URLs. Design of this application has been kept very simple and straight forward to make it easier for the user to navigate through the site and to focus on the main purpose of the site.
 <p align="center">
   <img src="static/img/UX.jpg" alt="responsive" width="600"/>
 </p>
@@ -12,8 +12,10 @@ URL Shortner is an application designed to shorten any long URLs. Design of this
 - Once submitted the short URL is provided. 
 - List has been created for the user to view the other URLs in the Database. 
 
-# Data Structure 
-For this Project, MongoDB has been used to store the Data. The Data stored in this scenario is the original URL so the user can be redirected to it when page is loaded. New URL is stored in order for the the user to access the webpage using the url. Also, the unique letters for each URL are store in order to the stop the system to create a same URL for different websites. 
+# Data Structure and Features
+For this Project, MongoDB has been used to store the Data. The Data stored in this scenario is the original URL so the user can be redirected to it when page is loaded. New URL is stored in order for the the user to access the webpage using the url. Also, the unique letters for each URL are store in order to the stop the system to create a same URL for different websites.
+
+There is a Navigation bar added at the top of the screen with a simple Home page and URLs Page link; where the Home page will take the user to the initial stage and the URL page link will provide them with a list of previous URLs. An input area is provided for the user to submit their link. Once submitted, a card is shown to the customer with the appropriate message and new URL next to it. If a shortened URL has already been created in the past, then the user will be shown with that same URL saved previously.
 
 # Deployment 
 
