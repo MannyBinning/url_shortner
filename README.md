@@ -21,7 +21,7 @@ There is a Navigation bar added at the top of the screen with a simple Home page
 
 To deploy [Shorten URLS](http://short-li.herokuapp.com/index) please follow the following steps: 
 
-1. Getting Started: You will have to go on GitHub [repository](https://github.com/MannyBinning/shorten_url) and click on the "code" button:
+1. Getting Started: You will have to go on GitHub [repository](https://github.com/MannyBinning/url_shortner) and click on the "code" button:
 
 2. Installing modules: Once loaded, inside the terminal install the modules required for this application using pip, -m and requirements.txt.
 
