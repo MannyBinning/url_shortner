@@ -1,5 +1,11 @@
+.navbar{
+    height: 150px;
+    width: 100%;
+    background-color: darkgrey;
+}
+
 .margin-top{
-    margin-top:150px;
+    margin-top:80px;
 }
 
 .max-height{
@@ -7,6 +13,59 @@
 }
 
 .background{
-    background-color: brown;
+    background-color: grey;
     min-height: 400px;
 }
+
+.logo {
+    float: left;
+    margin-left: 5%;
+  }
+
+nav {
+    float: right;
+  }
+
+  nav ul {
+    margin: 50;
+    margin-right: 100px;
+    padding: 0px;
+    list-style: none;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 23px;
+
+  
+    position: relative;
+  }
+
+  nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+  }
+
+  nav a:hover {
+    color: #000;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #444;
+  
+    position: absolute;
+    top: 0;
+    width: 0%;
+  
+    transition: all ease-in-out 250ms;
+  }
+  
+  nav a:hover::before {
+    width: 100%;
+  }
