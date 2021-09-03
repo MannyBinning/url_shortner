@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, url_for)
 from flask_pymongo import PyMongo
 import random
@@ -36,7 +36,7 @@ def index():
             "short_code": short_url
         }
         mongo.db.urls.insert_one(new_urls)
-        return redirect(url_for("display_short_url", url=short_url,))  
+        return redirect(url_for("display_short_url", url=short_url,))
     return render_template("index.html")
 
 
